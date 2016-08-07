@@ -1,0 +1,44 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='csrf-token', content=_csrf)
+        meta(property='fb:app_id', content='840200099444493')
+        if __canonicalUrl
+            // TODO: do not forget to change
+            meta(property='og:url', content='http://www.example.com' + __canonicalUrl)
+        meta(property='og:site_name', content='whatlib')
+        meta(property='og:title', content='whatlib' + (title ? ' - ' + title : ''))
+        meta(property='og:description', content='Find the right library for your project')
+        meta(property='og:image', content='http://www.whatlib.com/static/images/logo@2x.png')
+        meta(property='og:image:width', content='278')
+        meta(property='og:image:height', content='58')
+        title whatlib#{title ? ' - ' + title : ''}
+        link(rel='shortcut icon', href='/static/favicon.png')
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+        link(rel='stylesheet', href='/static/css/main.css')
+
+        include partials/mixpanel
+
+    body
+        #app-root
+            | !{__pageContent}
+
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js')
+        script.
+            window.__initialState = !{__initialState};
+        if isDev
+            script(src='/static/js/main.js')
+        else
+            script(src='/static/js/main.min.js')
+
+        // TODO: account id
+        script.
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', '', 'auto');
+            ga('send', 'pageview');
