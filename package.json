@@ -16,7 +16,8 @@
     "postinstall": "mkdir -p public/js && mkdir -p public/css && npm run build-prod",
     "js-watch": "npm run build-js-watch & npm run browserify-watch",
     "build-dev": "npm run build-js && npm run browserify",
-    "build-prod": "npm run build-dev && npm run uglify"
+    "build-prod": "npm run build-dev && npm run uglify",
+    "test": "./node_modules/.bin/jest --config jest.json"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",
