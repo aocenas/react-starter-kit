@@ -1,4 +1,4 @@
-// @Flow
+// @flow
 const React = require('react');
 import {Link} from 'react-router';
 

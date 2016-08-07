@@ -1,4 +1,4 @@
-// @Flow
+// @flow
 const React = require('react');
 
 export default function Footer () {
